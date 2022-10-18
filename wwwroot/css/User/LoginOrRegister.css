@@ -2,3 +2,37 @@
     margin: 0px auto;
     padding: 0px;
 }
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-size: 75px;
+}
+
+.body {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 75px;
+}
+
+.register {
+    width: 250px;
+}
+
+.login {
+    width: 250px;
+}
+
+.error {
+    font-weight: bold;
+    color: red;
+}
+
+.btn {
+    margin-top: 25px;
+}

@@ -8,29 +8,29 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TodoList
 build_property.RootNamespace = TodoList
-build_property.ProjectDir = c:\Users\jonat\OneDrive\Documents\Software Development\Projects\TodoList\
+build_property.ProjectDir = C:\Users\jonat\OneDrive\Documents\Software Development\Projects\TodoList\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\jonat\OneDrive\Documents\Software Development\Projects\TodoList
+build_property.MSBuildProjectDirectory = C:\Users\jonat\OneDrive\Documents\Software Development\Projects\TodoList
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/jonat/OneDrive/Documents/Software Development/Projects/TodoList/Views/Todo/Dashboard.cshtml]
+[C:/Users/jonat/OneDrive/Documents/Software Development/Projects/TodoList/Views/Todo/Dashboard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVG9kb1xEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/jonat/OneDrive/Documents/Software Development/Projects/TodoList/Views/User/LoginOrRegister.cshtml]
+[C:/Users/jonat/OneDrive/Documents/Software Development/Projects/TodoList/Views/User/LoginOrRegister.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxMb2dpbk9yUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/jonat/OneDrive/Documents/Software Development/Projects/TodoList/Views/User/_Login.cshtml]
+[C:/Users/jonat/OneDrive/Documents/Software Development/Projects/TodoList/Views/User/_Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxfTG9naW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/jonat/OneDrive/Documents/Software Development/Projects/TodoList/Views/User/_Register.cshtml]
+[C:/Users/jonat/OneDrive/Documents/Software Development/Projects/TodoList/Views/User/_Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXNlclxfUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/jonat/OneDrive/Documents/Software Development/Projects/TodoList/Views/_ViewImports.cshtml]
+[C:/Users/jonat/OneDrive/Documents/Software Development/Projects/TodoList/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
