@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "QsrIYD0DpqFXXE9h47oAIf/+DyofaMarukHSXYhqZFjE4lPVuS3Uo76IjsPAe9oqZUkFQBXCaRwf+ZAPYHpO+Q==",
+  "dgSpecHash": "djhjxV0cXLlbm0KliP1Igql1pdbJ3d1GwtgKPpW4o4br3PV1EyZCtD/o4U2np20kFuFn1Gi9tlW+lwsmqRFYbw==",
   "success": true,
   "projectFilePath": "C:\\Users\\jonat\\OneDrive\\Documents\\Software Development\\Projects\\TodoList\\TodoList.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\jonat\\.nuget\\packages\\mysqlconnector\\2.1.13\\mysqlconnector.2.1.13.nupkg.sha512"
+  ],
   "logs": []
 }
