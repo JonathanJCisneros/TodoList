@@ -7,24 +7,33 @@ public class Todo
     [Key]
     public int TodoId {get; set;}
 
+
     [Required(ErrorMessage = "is required")]
     [MinLength(4, ErrorMessage = "must be a minimum of 4 characters long")]
     [Display(Name = "Title")]
     public string Name {get; set;}
+
 
     [Required(ErrorMessage = "is required")]
     [MinLength(8, ErrorMessage = "must be a minimum of 8 characters long")]
     [Display(Name = "Description")]
     public string Description {get; set;}
 
+
     [Required(ErrorMessage = "is required")]
     [MyDate(ErrorMessage = "must be a future date")]
     [Display(Name = "Date")]
     public DateTime DueDate {get; set;}
 
+
     [Required]
     [Display(Name = "Status")]
     public string Status {get; set;} = "Unresolved";
+
+
+    [Required]
+    public int UserId {get; set;}
+
 
     public DateTime CreatedAt {get; set;} = DateTime.Now;
     public DateTime UpdatedAt {get; set;} = DateTime.Now;

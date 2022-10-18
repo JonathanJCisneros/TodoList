@@ -39,6 +39,10 @@ public class UserController : Controller
     [HttpGet("/home")]
     public IActionResult LoginOrRegister()
     {
+        if(loggedIn)
+        {
+            return RedirectToAction("Dashboard", "Todo");
+        }
         return View("LoginOrRegister");
     }
 
@@ -54,7 +58,8 @@ public class UserController : Controller
         string? existingEmail = null;
         using var con = new MySqlConnection(db);
         con.Open();
-        var command = new MySqlCommand($"SELECT Email FROM users WHERE Email = '{newUser.Email}'", con);
+        var command = new MySqlCommand("SELECT Email FROM users WHERE Email = @Email", con);
+        command.Parameters.AddWithValue("@Email", newUser.Email);
         var reader = command.ExecuteReader();
         while(reader.Read())
         {
@@ -72,9 +77,15 @@ public class UserController : Controller
         newUser.Password = hashBrowns.HashPassword(newUser, newUser.Password);
         
         con.Open();
-        var add = new MySqlCommand($"INSERT INTO users(FirstName, LastName, Email, Password) VALUES('{newUser.FirstName}', '{newUser.LastName}', '{newUser.Email}', '{newUser.Password}')", con);
+        var add = new MySqlCommand("INSERT INTO users(FirstName, LastName, Email, Password) VALUES(@First, @Last, @Email, @Password)", con);
+        add.Parameters.AddWithValue("@First", newUser.FirstName);
+        add.Parameters.AddWithValue("@Last", newUser.LastName);
+        add.Parameters.AddWithValue("@Email", newUser.Email);
+        add.Parameters.AddWithValue("@Password", newUser.Password);
         add.ExecuteNonQuery();
-        var grabId = new MySqlCommand($"SELECT UserId FROM users WHERE Email = '{newUser.Email}'", con);
+
+        var grabId = new MySqlCommand("SELECT UserId FROM users WHERE Email = @Email", con);
+        grabId.Parameters.AddWithValue("@Email", newUser.Email);
         var read = grabId.ExecuteReader();
         int userId = 0;
         while(read.Read())
@@ -82,7 +93,9 @@ public class UserController : Controller
             userId = Convert.ToInt32(read["UserId"]);
         }
         con.Close();
+
         HttpContext.Session.SetInt32("UserId", userId);
+        HttpContext.Session.SetString("Name", newUser.FirstName);
         return RedirectToAction("Dashboard", "Todo");
     }
 
@@ -96,14 +109,17 @@ public class UserController : Controller
 
         using var con = new MySqlConnection(db);
         con.Open();
-        var command = new MySqlCommand($"SELECT UserId, Email, Password FROM users WHERE Email = '{user.LoginEmail}'", con);
+        var command = new MySqlCommand("SELECT UserId, FirstName, Email, Password FROM users WHERE Email = @Email", con);
+        command.Parameters.AddWithValue("@Email", user.LoginEmail);
         var reader = command.ExecuteReader();
         int userId = 0;
+        string name = "";
         string? emailCheck = null;
         string pw = "";
         while(reader.Read())
         {
             userId = Convert.ToInt32(reader["UserId"]);
+            name = reader["FirstName"].ToString();
             emailCheck = reader["Email"].ToString();
             pw = reader["Password"].ToString();
         }
@@ -125,6 +141,7 @@ public class UserController : Controller
         }
 
         HttpContext.Session.SetInt32("UserId", userId);
+        HttpContext.Session.SetString("Name", name);
         return RedirectToAction("Dashboard", "Todo");
     }
 

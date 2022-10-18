@@ -1,0 +1,41 @@
+@model Todo
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>View One</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/Todo/ViewOne.css">
+    </head>
+    <body>
+        <header>
+            <div class="hLeft">
+                <h1 class="title">Details</h1>
+            </div>
+            <div class="hRight">
+                <a asp-controller="Todo" asp-action="Dashboard" class="btn btn-outline-primary">Dashboard</a>
+                <a asp-controller="User" asp-action="Logout" class="btn btn-outline-danger">Logout</a>
+            </div>
+        </header>
+        <div class="body">
+            <div class="tHead">
+                <h1 class="name">@Model.Name</h1>
+            </div>
+            
+            <div class="stats">
+                <h2>@Model.DueDate.ToString("MMMM d, yyyy")</h2>
+                <h2>Status: @Model.Status</h2>
+            </div>
+            <div class="details">
+                <h4>@Model.Description</h4>
+            </div>
+            
+        </div>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </body>
+</html>

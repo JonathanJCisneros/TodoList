@@ -1,0 +1,55 @@
+* {
+    margin: 0px auto;
+    padding: 0px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 0px 10%;
+    background-color: lightcyan;
+}
+
+.hLeft {
+    flex: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-size: 75px;
+}
+
+.hRight {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.body {
+    width: 80%;
+    padding: 10%;
+}
+
+.name {
+    width: 450px;
+} 
+
+.desc {
+    width: 650px;
+}
+
+.date {
+    width: 150px;
+}
+
+.btn {
+    margin-top: 25px;
+}
+
+.error {
+    font-weight: bold;
+    color: red;
+}

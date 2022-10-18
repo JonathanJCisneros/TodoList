@@ -1,0 +1,45 @@
+@model Todo
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=\, initial-scale=1.0">
+        <title>New Todo</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/Todo/NewTodo.css">
+    </head>
+    <body>
+        <header>
+            <div class="hLeft">
+                <h1 class="title">Add a Todo</h1>
+            </div>
+            <div class="hRight">
+                <a asp-controller="Todo" asp-action="Dashboard" class="btn btn-outline-primary">Dashboard</a>
+                <a asp-controller="User" asp-action="Logout" class="btn btn-outline-danger">Logout</a>
+            </div>
+        </header>
+        <form asp-controller="Todo" asp-action="AddTodo" method="POST" class="body">
+            <div>
+                <label asp-for="Name" class="form-label"></label>
+                <span asp-validation-for="Name" class="error"></span>
+                <input asp-for="Name" class="form-control name">
+            </div>
+            <div>
+                <label asp-for="Description" class="form-label"></label>
+                <span asp-validation-for="Description" class="error"></span>
+                <textarea asp-for="Description" class="form-control desc" ></textarea>
+            </div>
+            <div>
+                <label asp-for="DueDate" class="form-label"></label>
+                <span asp-validation-for="DueDate" class="error"></span>
+                <input type="date" asp-for="DueDate" class="form-control date">
+            </div>
+            <button type="submit" class="btn btn-outline-success">Add</button>
+        </form>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </body>
+</html>

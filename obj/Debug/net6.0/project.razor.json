@@ -16298,6 +16298,11 @@
   "RootNamespace": "TodoList",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\jonat\\OneDrive\\Documents\\Software Development\\Projects\\TodoList\\Views\\Todo\\NewTodo.cshtml",
+      "TargetPath": "Views\\Todo\\NewTodo.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\jonat\\OneDrive\\Documents\\Software Development\\Projects\\TodoList\\Views\\User\\_Register.cshtml",
       "TargetPath": "Views\\User\\_Register.cshtml",
       "FileKind": "mvc"
@@ -16315,6 +16320,11 @@
     {
       "FilePath": "c:\\Users\\jonat\\OneDrive\\Documents\\Software Development\\Projects\\TodoList\\Views\\Todo\\Dashboard.cshtml",
       "TargetPath": "Views\\Todo\\Dashboard.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jonat\\OneDrive\\Documents\\Software Development\\Projects\\TodoList\\Views\\Todo\\ViewOne.cshtml",
+      "TargetPath": "Views\\Todo\\ViewOne.cshtml",
       "FileKind": "mvc"
     },
     {

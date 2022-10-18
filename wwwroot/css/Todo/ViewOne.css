@@ -1,0 +1,58 @@
+* {
+    margin: 0px auto;
+    padding: 0px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 0px 10%;
+    background-color: lightcyan;
+}
+
+.hLeft {
+    flex: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-size: 75px;
+}
+
+.hRight {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.body {
+    width: 80%;
+    margin-top: 75px;
+}
+
+.tHead {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.name {
+    font-size: 50px;
+}
+
+.stats {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 50px;
+}
+
+.details {
+    display: flex;
+    justify-content: center;
+    height: 400px;
+}
