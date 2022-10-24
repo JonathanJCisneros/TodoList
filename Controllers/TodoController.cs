@@ -103,6 +103,24 @@ public class TodoController : Controller
 
         using var con = new MySqlConnection(db);
         con.Open();
+        
+        int? id = null;
+        var check = new MySqlCommand("SELECT TodoId FROM todos WHERE TodoId = @id",con);
+        check.Parameters.AddWithValue("@id", todoId);
+        var read = check.ExecuteReader();
+        while(read.Read())
+        {
+            id = Convert.ToInt32(read["TodoId"]);
+        }
+        con.Close();
+
+        if(id == null)
+        {
+            return RedirectToAction("Dashboard");
+        }
+
+        con.Open();
+        
         var command = new MySqlCommand("SELECT * FROM todos WHERE TodoId = @id", con);
         command.Parameters.AddWithValue("@id", todoId);
         var reader = command.ExecuteReader();
@@ -116,8 +134,14 @@ public class TodoController : Controller
             todo.Status = reader["Status"].ToString();
             todo.CreatedAt = Convert.ToDateTime(reader["CreatedAt"]);
             todo.UpdatedAt = Convert.ToDateTime(reader["UpdatedAt"]);
-        }
+            todo.UserId = Convert.ToInt32(reader["UserId"]);
+        }        
         con.Close();
+
+        if(todo.UserId != (int)uid)
+        {
+            return RedirectToAction("Dashboard");
+        }
 
         return View("ViewOne", todo);
     }
@@ -130,6 +154,25 @@ public class TodoController : Controller
             return RedirectToAction("LoginOrRegister", "User");
         }
         using var con = new MySqlConnection(db);
+        con.Open();
+
+        int? tId = null;
+        int? id = null;
+        var check = new MySqlCommand("SELECT TodoId, UserId FROM todos WHERE TodoId = @id", con);
+        check.Parameters.AddWithValue("@id", todoId);
+        var reader = check.ExecuteReader();
+        while(reader.Read())
+        {
+            tId = Convert.ToInt32(reader["TodoId"]);
+            id = Convert.ToInt32(reader["UserId"]);
+        }
+        con.Close();
+
+        if(tId == null || id != (int)uid)
+        {
+            return RedirectToAction("Dashboard");
+        }
+        
         con.Open();
         var command = new MySqlCommand("UPDATE todos SET Status = 'Resolved' WHERE TodoId = @id", con);
         command.Parameters.AddWithValue("@id", todoId);
@@ -147,6 +190,25 @@ public class TodoController : Controller
             return RedirectToAction("LoginOrRegister", "User");
         }
         using var con = new MySqlConnection(db);
+        
+        con.Open();
+        int? tId = null;
+        int? id = null;
+        var check = new MySqlCommand("SELECT TodoId, UserId FROM todos WHERE TodoId = @id", con);
+        check.Parameters.AddWithValue("@id", todoId);
+        var reader = check.ExecuteReader();
+        while(reader.Read())
+        {
+            tId = Convert.ToInt32(reader["TodoId"]);
+            id = Convert.ToInt32(reader["UserId"]);
+        }
+        con.Close();
+
+        if(tId == null || id != (int)uid)
+        {
+            return RedirectToAction("Dashboard");
+        }
+
         con.Open();
         var command = new MySqlCommand("DELETE FROM todos WHERE TodoId = @id", con);
         command.Parameters.AddWithValue("@id", todoId);

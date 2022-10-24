@@ -66,7 +66,7 @@ public class UserController : Controller
             existingEmail = reader["Email"].ToString();
         }
         con.Close();
-        // Is there security issues with keeping the connection open throughout this method? Ex: Instead of opening and closing the MySQL Connection in this method twice, can I keep the connection open and just close it within the "if statement" below? 
+        
         if(existingEmail != null)
         {
             ModelState.AddModelError("Email", "is taken");
@@ -75,7 +75,8 @@ public class UserController : Controller
         
         PasswordHasher<User> hashBrowns = new PasswordHasher<User>();
         newUser.Password = hashBrowns.HashPassword(newUser, newUser.Password);
-        
+
+
         con.Open();
         var add = new MySqlCommand("INSERT INTO users(FirstName, LastName, Email, Password) VALUES(@First, @Last, @Email, @Password)", con);
         add.Parameters.AddWithValue("@First", newUser.FirstName);
