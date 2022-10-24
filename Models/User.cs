@@ -27,7 +27,7 @@ public class User
 
 
     [Required(ErrorMessage = "is required")]
-    [MinLength(8, ErrorMessage = "must be at least 8 characters")]
+    [RegularExpression(@"^.*(?=.{8,})(?=.*[a-z])(?=.*[0-9])(?=.*[#?!@$%^&*-]).*$", ErrorMessage = "must be at least 8 characters long and have at least one letter, number and special character")]
     [DataType(DataType.Password)]
     [Display(Name = "Password")]
     public string Password {get; set;}
