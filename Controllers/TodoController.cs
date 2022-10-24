@@ -75,11 +75,15 @@ public class TodoController : Controller
     [HttpPost("/add")]
     public IActionResult AddTodo(Todo newTodo)
     {
-        newTodo.UserId = (int)uid;
         if(!ModelState.IsValid)
         {
             return NewTodo();
         }
+
+        newTodo.Name = newTodo.Name.Trim();
+        newTodo.Description = newTodo.Description.Trim();
+        newTodo.UserId = (int)uid;
+
         using var con = new MySqlConnection(db);
         con.Open();
         var command = new MySqlCommand("INSERT INTO todos(Name, Description, DueDate, Status, UserId) VALUES(@Name, @Description, @Date, @Status, @UserId)", con);
@@ -90,6 +94,7 @@ public class TodoController : Controller
         command.Parameters.AddWithValue("@UserId", newTodo.UserId);
         command.ExecuteNonQuery();
         con.Close();
+
         return RedirectToAction("Dashboard");
     }
 
@@ -189,6 +194,7 @@ public class TodoController : Controller
         {
             return RedirectToAction("LoginOrRegister", "User");
         }
+        
         using var con = new MySqlConnection(db);
         
         con.Open();

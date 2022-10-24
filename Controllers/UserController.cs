@@ -25,6 +25,11 @@ public class UserController : Controller
         }
     }
 
+    public string StringToUpper(string s)
+    {
+        s = s.Trim().ToLower();
+        return char.ToUpper(s[0]) + s.Substring(1);
+    }
 
     private string db
     {
@@ -54,6 +59,11 @@ public class UserController : Controller
         {
             return LoginOrRegister();
         }
+
+        newUser.FirstName = StringToUpper(newUser.FirstName);
+        newUser.LastName = StringToUpper(newUser.LastName);
+        newUser.Email = newUser.Email.Trim().ToLower();
+        newUser.Password = newUser.Password.Trim();
 
         string? existingEmail = null;
         using var con = new MySqlConnection(db);
@@ -107,6 +117,9 @@ public class UserController : Controller
         {
             return LoginOrRegister();
         }
+
+        user.LoginEmail = user.LoginEmail.Trim().ToLower();
+        user.LoginPassword = user.LoginPassword.Trim();
 
         using var con = new MySqlConnection(db);
         con.Open();

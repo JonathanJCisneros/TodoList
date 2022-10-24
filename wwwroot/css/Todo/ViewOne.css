@@ -56,3 +56,7 @@ header {
     justify-content: center;
     height: 400px;
 }
+
+.newLine {
+    white-space: pre-line;
+}
